@@ -8,6 +8,7 @@ fi
 
 rm -f /usr/bin/solidrock-session
 rm -f /usr/bin/solidrock-panel
+rm -f /usr/bin/solidrock-dock
 rm -f /usr/bin/solidrock-launcher
 rm -f /usr/bin/solidrock-settings
 rm -f /usr/bin/solidrock-notify

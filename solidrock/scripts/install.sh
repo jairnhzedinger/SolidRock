@@ -28,6 +28,7 @@ install_packages
 
 install -Dm755 "$ROOT_DIR/scripts/solidrock-session" "$PREFIX/bin/solidrock-session"
 install -Dm755 "$ROOT_DIR/scripts/solidrock-panel" "$PREFIX/bin/solidrock-panel"
+install -Dm755 "$ROOT_DIR/scripts/solidrock-dock" "$PREFIX/bin/solidrock-dock"
 install -Dm755 "$ROOT_DIR/scripts/solidrock-launcher" "$PREFIX/bin/solidrock-launcher"
 install -Dm755 "$ROOT_DIR/scripts/solidrock-settings" "$PREFIX/bin/solidrock-settings"
 install -Dm755 "$ROOT_DIR/scripts/solidrock-notify" "$PREFIX/bin/solidrock-notify"

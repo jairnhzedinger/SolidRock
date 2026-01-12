@@ -3,6 +3,7 @@ set $mod Mod4
 
 # Start Electron components (panel always visible, launcher hidden)
 exec_always solidrock-panel
+exec_always solidrock-dock
 exec_always solidrock-launcher --hidden
 
 # Start notifications daemon via systemd user
@@ -29,3 +30,4 @@ for_window [app_id="solidrock-launcher"] floating enable
 
 # Gaps
 gaps inner 5
+gaps bottom 84

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="/usr/share/solidrock"
+if [[ -d "$ROOT_DIR" ]]; then
+  DOCK_MAIN="$ROOT_DIR/electron/dock/main.js"
+else
+  DOCK_MAIN="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/electron/dock/main.js"
+fi
+
+electron "$DOCK_MAIN"
