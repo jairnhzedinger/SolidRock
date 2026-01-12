@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PIDFILE="/tmp/novashell-launcher.pid"
+ROOT_DIR="/usr/share/novashell"
+if [[ -d "$ROOT_DIR" ]]; then
+  LAUNCHER_MAIN="$ROOT_DIR/electron/launcher/main.js"
+else
+  LAUNCHER_MAIN="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/electron/launcher/main.js"
+fi
+
+start_launcher() {
+  local hidden="$1"
+  if [[ "$hidden" == "1" ]]; then
+    NOVASHELL_LAUNCHER_START_HIDDEN=1 electron "$LAUNCHER_MAIN" &
+  else
+    electron "$LAUNCHER_MAIN" &
+  fi
+  echo $! > "$PIDFILE"
+}
+
+if [[ "${1:-}" == "--toggle" ]]; then
+  if [[ -f "$PIDFILE" ]]; then
+    PID=$(cat "$PIDFILE")
+    if kill -0 "$PID" >/dev/null 2>&1; then
+      kill "$PID"
+      rm -f "$PIDFILE"
+      exit 0
+    fi
+    rm -f "$PIDFILE"
+  fi
+  start_launcher "0"
+  exit 0
+fi
+
+if [[ "${1:-}" == "--hidden" ]]; then
+  start_launcher "1"
+  exit 0
+fi
+
+start_launcher "0"

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="/usr/share/novashell"
+if [[ -d "$ROOT_DIR" ]]; then
+  PANEL_MAIN="$ROOT_DIR/electron/panel/main.js"
+else
+  PANEL_MAIN="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/electron/panel/main.js"
+fi
+
+electron "$PANEL_MAIN"
