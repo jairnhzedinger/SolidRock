@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+CONFIG_PATH="/etc/solidrock/sway/config"
+if [[ ! -f "$CONFIG_PATH" ]]; then
+  CONFIG_PATH="/usr/share/solidrock/sway/config"
+fi
+
+export XDG_CURRENT_DESKTOP="SolidRock"
+export XDG_SESSION_DESKTOP="SolidRock"
+export XDG_SESSION_TYPE="wayland"
+export XDG_SESSION_CLASS="user"
+export XDG_CURRENT_SESSION="SolidRock"
+
+exec sway -c "$CONFIG_PATH"

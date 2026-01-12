@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=NovaShell
-Comment=NovaShell session on Sway
-Exec=/usr/bin/novashell-session
-Type=Application
-DesktopNames=NovaShell

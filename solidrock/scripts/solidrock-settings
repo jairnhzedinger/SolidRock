@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+PIDFILE="/tmp/solidrock-settings.pid"
+ROOT_DIR="/usr/share/solidrock"
+if [[ -d "$ROOT_DIR" ]]; then
+  SETTINGS_MAIN="$ROOT_DIR/electron/settings/main.js"
+else
+  SETTINGS_MAIN="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/electron/settings/main.js"
+fi
+
+start_settings() {
+  electron "$SETTINGS_MAIN" &
+  echo $! > "$PIDFILE"
+}
+
+if [[ "${1:-}" == "--toggle" ]]; then
+  if [[ -f "$PIDFILE" ]]; then
+    PID=$(cat "$PIDFILE")
+    if kill -0 "$PID" >/dev/null 2>&1; then
+      kill "$PID"
+      rm -f "$PIDFILE"
+      exit 0
+    fi
+    rm -f "$PIDFILE"
+  fi
+  start_settings
+  exit 0
+fi
+
+start_settings
