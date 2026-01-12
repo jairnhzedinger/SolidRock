@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="/usr/share/solidrock"
+if [[ -d "$ROOT_DIR" ]]; then
+  NOTIFY_MAIN="$ROOT_DIR/electron/notifications/main.js"
+else
+  NOTIFY_MAIN="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)/electron/notifications/main.js"
+fi
+
+electron "$NOTIFY_MAIN"

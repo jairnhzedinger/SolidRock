@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=SolidRock Desktop
+Comment=SolidRock Desktop session on Sway
+Exec=/usr/bin/solidrock-session
+Type=Application
+DesktopNames=SolidRock

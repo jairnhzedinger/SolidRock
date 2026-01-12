@@ -1,0 +1,20 @@
+{
+  "name": "solidrock",
+  "version": "0.2.0",
+  "description": "SolidRock Desktop shell with Electron on Sway",
+  "main": "electron/panel/main.js",
+  "private": true,
+  "scripts": {
+    "dev": "sh -c \"npm run dev:panel & npm run dev:launcher & npm run dev:settings & npm run dev:notify\"",
+    "dev:panel": "electron electron/panel/main.js",
+    "dev:launcher": "electron electron/launcher/main.js",
+    "dev:settings": "electron electron/settings/main.js",
+    "dev:notify": "electron electron/notifications/main.js"
+  },
+  "dependencies": {
+    "dbus-next": "^0.10.2"
+  },
+  "devDependencies": {
+    "electron": "^29.4.0"
+  }
+}

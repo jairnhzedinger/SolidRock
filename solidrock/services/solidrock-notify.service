@@ -1,0 +1,11 @@
+[Unit]
+Description=SolidRock Notifications
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/solidrock-notify
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target
