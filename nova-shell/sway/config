@@ -1,0 +1,29 @@
+# NovaShell Sway configuration
+set $mod Mod4
+
+# Start Electron components (panel always visible, launcher hidden)
+exec_always novashell-panel
+exec_always novashell-launcher --hidden
+
+# No default bar
+bar {
+  mode invisible
+}
+
+# Wallpaper if swaybg is available
+exec_always "swaybg -m fill -i /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png"
+
+# Keybindings
+bindsym $mod+space exec "novashell-launcher --toggle"
+bindsym $mod+Return exec alacritty
+
+# Basic input defaults
+input * {
+  xkb_layout "br"
+}
+
+# Floating rules for launcher
+for_window [app_id="nova-shell-launcher"] floating enable
+
+# Gaps
+gaps inner 5

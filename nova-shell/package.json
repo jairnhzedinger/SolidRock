@@ -1,0 +1,15 @@
+{
+  "name": "nova-shell",
+  "version": "0.1.0",
+  "description": "MVP desktop shell with Electron on Sway",
+  "main": "electron/panel/main.js",
+  "private": true,
+  "scripts": {
+    "dev": "sh -c \"npm run dev:panel & npm run dev:launcher\"",
+    "dev:panel": "electron electron/panel/main.js",
+    "dev:launcher": "electron electron/launcher/main.js"
+  },
+  "devDependencies": {
+    "electron": "^29.4.0"
+  }
+}
