@@ -24,6 +24,7 @@ SolidRock Desktop é uma camada de shell que roda sobre o Sway, oferecendo paine
 Componentes oficiais:
 
 - `solidrock-panel` → painel Wayland (layer-shell)
+- `solidrock-dock` → dock inferior com atalhos principais
 - `solidrock-launcher` → launcher de apps
 - `solidrock-settings` → central de controle
 - `solidrock-notify` → daemon de notificações (DBus)
@@ -45,6 +46,7 @@ O daemon `solidrock-notify` implementa `org.freedesktop.Notifications` e exibe n
 solidrock/
  ├─ electron/
  │   ├─ panel/
+ │   ├─ dock/
  │   ├─ launcher/
  │   ├─ settings/
  │   ├─ notifications/

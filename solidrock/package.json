@@ -5,8 +5,9 @@
   "main": "electron/panel/main.js",
   "private": true,
   "scripts": {
-    "dev": "sh -c \"npm run dev:panel & npm run dev:launcher & npm run dev:settings & npm run dev:notify\"",
+    "dev": "sh -c \"npm run dev:panel & npm run dev:dock & npm run dev:launcher & npm run dev:settings & npm run dev:notify\"",
     "dev:panel": "electron electron/panel/main.js",
+    "dev:dock": "electron electron/dock/main.js",
     "dev:launcher": "electron electron/launcher/main.js",
     "dev:settings": "electron electron/settings/main.js",
     "dev:notify": "electron electron/notifications/main.js"
